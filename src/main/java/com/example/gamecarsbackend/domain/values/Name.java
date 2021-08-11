@@ -1,16 +1,17 @@
 package com.example.gamecarsbackend.domain.values;
 
-import co.com.sofka.domain.generic.ValueObject;
 
-public class Name implements ValueObject<String> {
-    private final String value;
 
-    public Name(String value) {
-        this.value = value;
+public class Name {
+
+    private String name;
+
+    public Name(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String value(){
-        return value;
+    public String getName() {
+        return name;
     }
+
 }

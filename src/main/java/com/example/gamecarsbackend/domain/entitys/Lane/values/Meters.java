@@ -1,16 +1,15 @@
 package com.example.gamecarsbackend.domain.entitys.Lane.values;
 
-import co.com.sofka.domain.generic.ValueObject;
+public class Meters {
 
-public class Meters implements ValueObject<Integer> {
-    private final Integer value;
+    private Integer meters;
 
-    public Meters(Integer value) {
-        this.value = value;
+    public Meters(Integer meters) {
+        this.meters = meters;
     }
 
-    @Override
-    public Integer value(){
-        return value;
+    public Integer getMeters() {
+        return meters;
     }
+
 }

@@ -1,16 +1,37 @@
 package com.example.gamecarsbackend.domain.values;
 
-import co.com.sofka.domain.generic.ValueObject;
 
-public class Position implements ValueObject<String> {
-    private final String value;
 
-    public Position(String value) {
-        this.value = value;
+public class Position implements Props {
+
+    private Integer actual;
+    private Integer meta;
+
+    @Override
+    public Integer actual() {
+        return actual;
     }
 
     @Override
-    public String value(){
-        return value;
+    public Integer meta() {
+        return meta;
     }
+
+    public void setActual(Integer actual) {
+        this.actual = actual;
+    }
+
+    public Position(Integer actual, Integer meta) {
+        this.actual = actual;
+        this.meta = meta;
+    }
+
+}
+
+interface Props {
+
+    public Integer actual();
+
+    public Integer meta();
+
 }

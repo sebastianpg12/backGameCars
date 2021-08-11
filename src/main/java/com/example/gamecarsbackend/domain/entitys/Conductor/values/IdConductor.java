@@ -1,13 +1,17 @@
 package com.example.gamecarsbackend.domain.entitys.Conductor.values;
 
-import co.com.sofka.domain.generic.Identity;
 
-public class IdConductor extends Identity {
-    private IdConductor(String id){
-        super(id);
+import java.util.UUID;
+
+public class IdConductor {
+
+    private UUID id;
+
+    public IdConductor(UUID id) {
+        this.id = id;
     }
 
-    public static IdConductor of (String id){
-        return new IdConductor(id);
+    public String getId() {
+        return id.toString();
     }
 }

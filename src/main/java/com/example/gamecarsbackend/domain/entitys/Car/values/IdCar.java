@@ -1,14 +1,17 @@
 package com.example.gamecarsbackend.domain.entitys.Car.values;
 
-import co.com.sofka.domain.generic.Identity;
 
-public class IdCar extends Identity {
-    private IdCar(String id){
-        super(id);
+import java.util.UUID;
+
+public class IdCar{
+    private UUID id;
+
+    public IdCar(UUID id) {
+        this.id = id;
     }
 
-    public static IdCar of (String id){
-        return new IdCar(id);
+    public String getId() {
+        return id.toString();
     }
 }
 

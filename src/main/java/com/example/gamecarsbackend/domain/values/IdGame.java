@@ -1,13 +1,16 @@
 package com.example.gamecarsbackend.domain.values;
 
-import co.com.sofka.domain.generic.Identity;
 
-public class IdGame extends Identity {
-    private IdGame(String id){
-        super(id);
+import java.util.UUID;
+
+public class IdGame {
+    private UUID id;
+
+    public IdGame(UUID id) {
+        this.id = id;
     }
 
-    public static IdGame of (String id){
-        return new IdGame(id);
+    public String getId() {
+        return id.toString();
     }
 }
