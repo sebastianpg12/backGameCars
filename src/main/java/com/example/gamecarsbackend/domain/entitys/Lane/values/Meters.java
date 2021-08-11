@@ -2,7 +2,7 @@ package com.example.gamecarsbackend.domain.entitys.Lane.values;
 
 public class Meters {
 
-    private Integer meters;
+    private final Integer meters;
 
     public Meters(Integer meters) {
         this.meters = meters;

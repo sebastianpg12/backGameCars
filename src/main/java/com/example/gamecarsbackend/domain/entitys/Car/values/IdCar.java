@@ -1,14 +1,16 @@
 package com.example.gamecarsbackend.domain.entitys.Car.values;
 
 
+import lombok.AllArgsConstructor;
+
 import java.util.UUID;
 
+@AllArgsConstructor
 public class IdCar{
-    private UUID id;
+    private final String id;
 
-    public IdCar(UUID id) {
-        this.id = id;
-    }
+    public static IdCar of (String id){return new IdCar(id);}
+
 
     public String getId() {
         return id.toString();

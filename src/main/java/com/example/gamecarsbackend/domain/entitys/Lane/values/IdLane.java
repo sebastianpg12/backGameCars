@@ -4,7 +4,7 @@ package com.example.gamecarsbackend.domain.entitys.Lane.values;
 import java.util.UUID;
 
 public class IdLane {
-    private UUID id;
+    private final UUID id;
 
     public IdLane(UUID id) {
         this.id = id;
