@@ -1,25 +1,23 @@
 package com.example.gamecarsbackend.domain.entitys.Lane;
 
-import com.example.gamecarsbackend.domain.entitys.Car.values.IdCar;
-import com.example.gamecarsbackend.domain.entitys.Lane.values.IdLane;
-import com.example.gamecarsbackend.domain.entitys.Lane.values.Meters;
-import com.example.gamecarsbackend.domain.values.IdGame;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "cars")
+@Getter
+@Setter
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Document(collection = "Lane")
 public class Lane {
-
-    private final IdLane idLane;
-    private final IdCar carroId;
-    private final IdGame juegoId;
-    private final Meters meters;
-    private final Boolean finalDisplacement;
-
-    public Lane(IdLane idLane, IdCar carroId, IdGame juegoId, Meters meters, Boolean finalDisplacement) {
-        this.idLane = idLane;
-        this.carroId = carroId;
-        this.juegoId = juegoId;
-        this.meters = meters;
-        this.finalDisplacement = finalDisplacement;
-    }
+    @Id
+    private String railId;
+    private String carId;
+    private String gameId;
+    private String trackId;
+    private String driverId;
 }
+

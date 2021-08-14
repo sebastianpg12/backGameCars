@@ -1,16 +1,26 @@
 package com.example.gamecarsbackend.domain.entitys.Car;
-
-import com.example.gamecarsbackend.domain.values.Distance;
-import com.example.gamecarsbackend.domain.entitys.Car.values.IdCar;
-import com.example.gamecarsbackend.domain.values.IdGame;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.HashMap;
-import java.util.Map;
 
-@Document(collection = "cars")
+@Getter
+@Setter
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Document(collection = "Car")
 public class Car {
-
+    @Id
+    private String id;
+    private Boolean Goal;
+    private Integer currentPosition;
+    private Integer advance;
+    private String driverId;
+    private String gameId;
+    private String railId;
 
 
 }

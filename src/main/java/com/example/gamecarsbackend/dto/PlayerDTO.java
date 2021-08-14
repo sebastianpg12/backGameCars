@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.RequiredArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -20,5 +19,6 @@ public class PlayerDTO {
     private Integer firstPlace;
     private Integer secondPlace;
     private Integer thirdPlace;
-    private String carId;
+    private String gameId;
+    private String driverId;
 }
