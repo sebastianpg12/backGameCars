@@ -11,28 +11,33 @@ import org.springframework.stereotype.Component;
 import java.util.function.Function;
 
 
+
 @Component
 public class PlayerMapper {
 
     public Function<PlayerDTO, Player> mapperToPlayer(String id){
-        return updatePlayer -> new Player(
-                IdPlayer.of(id),
-                new Name(updatePlayer.getName()),
-                new AmountPositionsObtained(updatePlayer.getFirstPlace()),
-                new AmountPositionsObtained(updatePlayer.getSecondPlace()),
-                new AmountPositionsObtained(updatePlayer.getThirdPlace()),
-                IdCar.of(updatePlayer.getCarId())
-        );
+        return updatePlayer -> {
+            Player player = new Player();
+            player.setPlayerId(id);
+            player.setName(updatePlayer.getName());
+            player.setFirstPlace(updatePlayer.getFirstPlace());
+            player.setSecondPlace(updatePlayer.getSecondPlace());
+            player.setThirdPlace(updatePlayer.getThirdPlace());
+            player.setGameId(updatePlayer.getGameId());
+            player.setDriverId(updatePlayer.getDriverId());
+            return player;
+        };
     }
 
     public Function<Player,PlayerDTO> mapperToPlayerDTO(){
         return player -> new PlayerDTO(
-                player.getIdPlayer().getId(),
-                player.getName().getName(),
-                player.getFirstPosition().getAmountPositionsObtained(),
-                player.getSecondPosition().getAmountPositionsObtained(),
-                player.getThirdPosition().getAmountPositionsObtained(),
-                player.getIdCar().getId()
+                player.getPlayerId(),
+                player.getName(),
+                player.getFirstPlace(),
+                player.getSecondPlace(),
+                player.getThirdPlace(),
+                player.getGameId(),
+                player.getDriverId()
         );
     }
 }

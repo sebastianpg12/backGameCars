@@ -15,12 +15,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Car {
     @Id
     private String id;
-    private Boolean Goal;
+    private Boolean goal;
     private Integer currentPosition;
     private Integer advance;
     private String driverId;
     private String gameId;
-    private String railId;
-
+    private String laneId;
 
 }

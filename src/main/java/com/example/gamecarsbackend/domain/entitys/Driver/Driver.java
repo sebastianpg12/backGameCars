@@ -13,12 +13,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document(collection = "Driver")
 public class Driver {
-
     @Id
     private  String driverId;
     private  Integer position;
     private  String playerId;
-    private  String railId;
+    private  String laneId;
     private  String carId;
 
 }
