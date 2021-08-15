@@ -15,7 +15,7 @@ public class DriverMapper {
             driver.setDriverId(id);
             driver.setPosition(updateDriver.getPosition());
             driver.setPlayerId(updateDriver.getPlayerId());
-            driver.setDriverId(updateDriver.getLaneId());
+            driver.setLaneId(updateDriver.getLaneId());
             driver.setCarId(updateDriver.getCarId());
             return driver;
         };

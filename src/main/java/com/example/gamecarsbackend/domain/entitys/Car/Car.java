@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Car")
 public class Car {
     @Id
-    private String id;
+    private String carId;
     private Boolean goal;
     private Integer currentPosition;
     private Integer advance;

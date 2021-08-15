@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class CarDTO {
 
     @Id
-    private String id;
+    private String carId;
     private Boolean goal;
     private Integer currentPosition;
     private Integer advance;

@@ -16,18 +16,14 @@ import reactor.core.publisher.Mono;
 public class CreateDriverUseCase {
     private final DriverRepository driverRepository;
     private final DriverMapper driverMapper;
-
     @Autowired
     public CreateDriverUseCase(DriverRepository driverRepository, DriverMapper driverMapper) {
         this.driverRepository = driverRepository;
         this.driverMapper = driverMapper;
     }
-
     public Mono<DriverDTO> apply(DriverDTO driverDTO) {
         return driverRepository.save(driverMapper.mapperToDriver(driverDTO.getDriverId())
                 .apply(driverDTO))
                 .map(driverMapper.mapperToDriverDTO());
-
     }
-
 }

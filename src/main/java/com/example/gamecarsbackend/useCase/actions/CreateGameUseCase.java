@@ -13,16 +13,13 @@ import reactor.core.publisher.Mono;
 @Service
 @Validated
 public class CreateGameUseCase {
-
     private final GameRepository gameRepository;
     private final GameMapper gameMapper;
-
     @Autowired
     public CreateGameUseCase(GameRepository gameRepository, GameMapper gameMapper) {
         this.gameRepository = gameRepository;
         this.gameMapper = gameMapper;
     }
-
     public Mono<GameDTO> createGame(GameDTO gameDTO){
         return gameRepository.save(gameMapper.mapperToGame(gameDTO.getGameId())
                 .apply(gameDTO))

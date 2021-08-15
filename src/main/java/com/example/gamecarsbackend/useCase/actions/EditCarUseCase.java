@@ -24,7 +24,7 @@ public class EditCarUseCase {
 
     public Mono<CarDTO> modifyCar(CarDTO carDTO){
         return carRepository
-                .save(carMapper.mapperToCar(carDTO.getId())
+                .save(carMapper.mapperToCar(carDTO.getCarId())
                         .apply(carDTO))
                 .map(carMapper.mappertoCarDTO());
     }

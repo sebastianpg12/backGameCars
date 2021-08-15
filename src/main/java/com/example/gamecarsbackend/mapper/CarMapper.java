@@ -12,7 +12,7 @@ public class CarMapper {
     public Function<CarDTO, Car> mapperToCar(String id) {
         return updateCar -> {
             Car car = new Car();
-            car.setId(updateCar.getId());
+            car.setCarId(updateCar.getCarId());
             car.setGoal(updateCar.getGoal());
             car.setCurrentPosition(updateCar.getCurrentPosition());
             car.setAdvance(updateCar.getAdvance());
@@ -26,7 +26,7 @@ public class CarMapper {
 
     public Function<Car, CarDTO> mappertoCarDTO(){
         return car -> new CarDTO(
-                car.getId(),
+                car.getCarId(),
                 car.getGoal(),
                 car.getCurrentPosition(),
                 car.getAdvance(),
