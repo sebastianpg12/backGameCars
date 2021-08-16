@@ -33,7 +33,7 @@ class GetPlayersByGameIdUseCaseTest {
 
         when(playerRepository.findByGameId(Mockito.any(String.class))).thenReturn(Flux.just(player));
 
-        var response = getPlayersByGameIdUseCase.getPlayersByGameId(playerDTO.getGameId());
+        Flux<PlayerDTO> response = getPlayersByGameIdUseCase.getPlayersByGameId(playerDTO.getGameId());
 
         Assertions.assertEquals(response.blockFirst().getGameId(), "5");
     }
