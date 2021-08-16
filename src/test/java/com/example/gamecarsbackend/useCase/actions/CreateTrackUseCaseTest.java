@@ -1,4 +1,4 @@
-package com.example.gamecarsbackend.useCase.actions.track;
+package com.example.gamecarsbackend.useCase.actions;
 
 import com.example.gamecarsbackend.domain.entitys.Track.Track;
 import com.example.gamecarsbackend.dto.TrackDTO;

@@ -1,4 +1,4 @@
-package com.example.gamecarsbackend.useCase.query.podium;
+package com.example.gamecarsbackend.useCase.query;
 
 import com.example.gamecarsbackend.domain.entitys.Podium.Podium;
 import com.example.gamecarsbackend.dto.PodiumDTO;
@@ -23,7 +23,7 @@ class FindByIdPodiumUseCaseTest {
     @MockBean
     PodiumRepository podiumRepository;
     @Test
-    void updatePodium(){
+    void findByIdPodium(){
         PodiumDTO podiumDTO = new PodiumDTO("7","1" ,"1","1","1",false);
         Podium podium = new Podium();
         podium.setPodiumId("7");

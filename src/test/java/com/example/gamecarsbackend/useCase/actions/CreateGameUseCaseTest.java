@@ -1,4 +1,4 @@
-package com.example.gamecarsbackend.useCase.actions.game;
+package com.example.gamecarsbackend.useCase.actions;
 
 import com.example.gamecarsbackend.domain.entitys.Game.Game;
 import com.example.gamecarsbackend.dto.GameDTO;
@@ -17,7 +17,6 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class CreateGameUseCaseTest {
-
 
     @SpyBean
     CreateGameUseCase createGameUseCase;

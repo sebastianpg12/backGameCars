@@ -1,4 +1,4 @@
-package com.example.gamecarsbackend.useCase.actions.lane;
+package com.example.gamecarsbackend.useCase.actions;
 
 import com.example.gamecarsbackend.domain.entitys.Lane.Lane;
 import com.example.gamecarsbackend.dto.LaneDTO;

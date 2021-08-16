@@ -1,4 +1,4 @@
-package com.example.gamecarsbackend.useCase.actions.podium;
+package com.example.gamecarsbackend.useCase.actions;
 
 import com.example.gamecarsbackend.domain.entitys.Podium.Podium;
 import com.example.gamecarsbackend.dto.PodiumDTO;

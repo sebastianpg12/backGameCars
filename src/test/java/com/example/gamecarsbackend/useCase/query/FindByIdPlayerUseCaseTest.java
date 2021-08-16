@@ -1,9 +1,9 @@
-package com.example.gamecarsbackend.useCase.actions.player;
+package com.example.gamecarsbackend.useCase.query;
 
 import com.example.gamecarsbackend.domain.entitys.Game.Player;
 import com.example.gamecarsbackend.dto.PlayerDTO;
 import com.example.gamecarsbackend.repository.PlayerRepository;
-import com.example.gamecarsbackend.useCase.actions.EditPlayerUseCase;
+import com.example.gamecarsbackend.useCase.query.FindByIdPlayerUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -12,20 +12,20 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import reactor.core.publisher.Mono;
 
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class EditPlayerUseCaseTest {
+class FindByIdPlayerUseCaseTest {
     @SpyBean
-    EditPlayerUseCase editPlayerUseCase;
+    FindByIdPlayerUseCase findByIdPlayerUseCase;
 
     @MockBean
     PlayerRepository playerRepository;
 
     @Test
-    void updatePlayer(){
-        PlayerDTO playerDTO = new PlayerDTO("7", "Carlos", 0, 0, 0, "5", "7");
+    void findByIdPlayer() {
+        PlayerDTO playerDTO = new PlayerDTO("7","Carlos",0,0,0,"5","7");
         Player player = new Player();
         player.setPlayerId("7");
         player.setName("Carlos");
@@ -33,12 +33,12 @@ class EditPlayerUseCaseTest {
         player.setSecondPlace(0);
         player.setThirdPlace(0);
         player.setGameId("5");
-        player.setDriverId("7");
+        player.setDriverId("10");
 
-        when(playerRepository.save(Mockito.any(Player.class))).thenReturn(Mono.just(player));
+        when(playerRepository.findById(Mockito.any(String.class))).thenReturn(Mono.just(player));
 
-        Mono<PlayerDTO> response = editPlayerUseCase.modifyPlayer(playerDTO);
+        Mono<PlayerDTO> response = findByIdPlayerUseCase.findById(playerDTO.getPlayerId());
 
-        Assertions.assertEquals(response.block(), playerDTO);
+        Assertions.assertEquals(response.block().getPlayerId(), "7");
     }
 }

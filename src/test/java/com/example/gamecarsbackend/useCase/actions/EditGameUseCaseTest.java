@@ -1,4 +1,4 @@
-package com.example.gamecarsbackend.useCase.query;
+package com.example.gamecarsbackend.useCase.actions;
 
 import com.example.gamecarsbackend.domain.entitys.Game.Game;
 import com.example.gamecarsbackend.domain.entitys.Game.Player;
@@ -18,23 +18,23 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class FindByIdGameUseCaseTest {
+class EditGameUseCaseTest {
     @SpyBean
-    FindByIdGameUseCase findByIdGameUseCase;
+    EditGameUseCase editGameUseCase;
 
     @MockBean
     GameRepository gameRepository;
 
     @Test
-    void findByIdGame() {
+    void updateGame(){
         GameDTO gameDTO = new GameDTO("45","84", false);
         Game game = new  Game("45","84", false);
 
-        when(gameRepository.findById(Mockito.any(String.class))).thenReturn(Mono.just(game));
+        when(gameRepository.save(Mockito.any(Game.class))).thenReturn(Mono.just(game));
 
-        Mono<GameDTO> response = findByIdGameUseCase.findById(gameDTO.getGameId());
+        Mono<GameDTO> response = editGameUseCase.modifyGame(gameDTO);
 
-        Assertions.assertEquals(response.block().getGameId(), "45");
+        Assertions.assertEquals(response.block(), gameDTO);
     }
 
 }

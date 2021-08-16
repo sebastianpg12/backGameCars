@@ -12,29 +12,31 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class FindByIdGameUseCaseTest {
+class FindAllPlayerUseCaseTest {
     @SpyBean
-    FindByIdGameUseCase findByIdGameUseCase;
+    FindAllPlayerUseCase findAllPlayerUseCase;
 
     @MockBean
-    GameRepository gameRepository;
+    PlayerRepository playerRepository;
 
     @Test
-    void findByIdGame() {
-        GameDTO gameDTO = new GameDTO("45","84", false);
-        Game game = new  Game("45","84", false);
+    void findByIdAllPlayer() {
+        PlayerDTO playerDTO = new PlayerDTO("7","Carlos",0,0,0,"5","7");
+        Player player = new Player("7","Carlos",0,0,0,"5","7");
 
-        when(gameRepository.findById(Mockito.any(String.class))).thenReturn(Mono.just(game));
+        when(playerRepository.findAll()).thenReturn(Flux.just(player));
 
-        Mono<GameDTO> response = findByIdGameUseCase.findById(gameDTO.getGameId());
 
-        Assertions.assertEquals(response.block().getGameId(), "45");
+        Flux<PlayerDTO> response = findAllPlayerUseCase.findAll();
+
+        Assertions.assertEquals(response.blockFirst(), playerDTO);
     }
 
 }

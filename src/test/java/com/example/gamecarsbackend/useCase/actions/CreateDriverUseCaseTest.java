@@ -1,4 +1,4 @@
-package com.example.gamecarsbackend.useCase.actions.driver;
+package com.example.gamecarsbackend.useCase.actions;
 
 import com.example.gamecarsbackend.domain.entitys.Driver.Driver;
 import com.example.gamecarsbackend.dto.DriverDTO;

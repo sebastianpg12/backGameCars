@@ -22,6 +22,7 @@ public class EditCarRouter {
                 request -> request.bodyToMono(CarDTO.class)
                         .flatMap(carDTO -> editCarUseCasee.modifyCar(carDTO)
                                 .flatMap(result-> ServerResponse.ok()
+                                        .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))
                         )
         );
