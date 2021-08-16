@@ -18,4 +18,17 @@ public class PodiumDTO {
     private String secondPlace;
     private String thirdPlace;
     private String gameId;
+    private Boolean isFull;
+
+    public void assignFirstPlace(String name) {
+        this.setFirstPlace(name);
+    }
+
+    public void assignSecondPlace(String name) {
+        this.setSecondPlace(name);
+    }
+
+    public void assignThirdPlace(String name) {
+        this.setThirdPlace(name);
+    }
 }

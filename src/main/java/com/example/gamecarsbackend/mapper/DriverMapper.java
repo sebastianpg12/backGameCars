@@ -17,6 +17,7 @@ public class DriverMapper {
             driver.setPlayerId(updateDriver.getPlayerId());
             driver.setLaneId(updateDriver.getLaneId());
             driver.setCarId(updateDriver.getCarId());
+
             return driver;
         };
     }
@@ -28,6 +29,7 @@ public class DriverMapper {
                 driver.getPlayerId(),
                 driver.getLaneId(),
                 driver.getCarId()
+
         );
     }
 }

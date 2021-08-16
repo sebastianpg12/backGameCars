@@ -16,5 +16,6 @@ public class GameDTO {
     @Id
     private String gameId;
     private String trackId;
+    private Boolean isFinished;
 
 }

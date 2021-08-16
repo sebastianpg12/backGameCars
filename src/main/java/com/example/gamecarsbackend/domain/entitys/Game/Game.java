@@ -15,8 +15,6 @@ public class Game {
     @Id
     private String gameId;
     private String trackId;
-
-
-
+    private Boolean isFinished;
 
 }

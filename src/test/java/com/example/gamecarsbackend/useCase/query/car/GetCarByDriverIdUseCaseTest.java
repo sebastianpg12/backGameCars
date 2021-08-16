@@ -1,30 +1,32 @@
-package com.example.gamecarsbackend.useCase.query;
+package com.example.gamecarsbackend.useCase.query.car;
 
 import com.example.gamecarsbackend.domain.entitys.Car.Car;
 import com.example.gamecarsbackend.dto.CarDTO;
 import com.example.gamecarsbackend.repository.CarRepository;
+import com.example.gamecarsbackend.useCase.query.GetCarByDriverIdUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class FindByIdCarUseCaseTest {
+class GetCarByDriverIdUseCaseTest {
+
     @SpyBean
-    FindByIdCarUseCase findByIdCarUseCase;
+    GetCarByDriverIdUseCase getCarByDriverIdUseCase;
 
     @MockBean
     CarRepository carRepository;
 
     @Test
-    void findByIdPlayer() {
-        var carDTO = new CarDTO("8", false, 3, 2, "1", "5", "5");
+    void getByIdDriver() {
+        var carDTO = new CarDTO("8", false, 3, 2, "1", "5", "5", "a");
         var car = new Car();
         car.setCarId("8");
         car.setGoal(false);
@@ -33,12 +35,10 @@ class FindByIdCarUseCaseTest {
         car.setDriverId("1");
         car.setGameId("5");
         car.setLaneId("5");
-
-        when(carRepository.findById(Mockito.any(String.class))).thenReturn(Mono.just(car));
-
-        var response = findByIdCarUseCase.findById(carDTO.getCarId());
-
-        Assertions.assertEquals(response.block().getCarId(), "8");
+        car.setNamePlayer("a");
+        when(carRepository.findByDriverId(Mockito.any(String.class))).thenReturn(Flux.just(car));
+        var response =getCarByDriverIdUseCase.findCarsByDriverId(carDTO.getCarId());
+        Assertions.assertEquals(response.blockFirst().getDriverId(), "1");
     }
 
 }

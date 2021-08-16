@@ -21,5 +21,6 @@ public class Car {
     private String driverId;
     private String gameId;
     private String laneId;
+    private String namePlayer;
 
 }

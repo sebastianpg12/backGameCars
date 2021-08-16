@@ -17,6 +17,7 @@ public class PodiumMapper {
             podium.setSecondPlace(updatePodium.getSecondPlace());
             podium.setThirdPlace(updatePodium.getThirdPlace());
             podium.setGameId(updatePodium.getGameId());
+            podium.setIsFull(updatePodium.getIsFull());
             return podium;
         };
     }
@@ -27,7 +28,8 @@ public class PodiumMapper {
                 podium.getFirstPlace(),
                 podium.getSecondPlace(),
                 podium.getThirdPlace(),
-                podium.getGameId()
+                podium.getGameId(),
+                podium.getIsFull()
         );
     }
 }

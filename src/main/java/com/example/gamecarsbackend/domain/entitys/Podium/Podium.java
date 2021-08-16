@@ -19,4 +19,5 @@ public class Podium {
     private String secondPlace;
     private String thirdPlace;
     private String gameId;
+    private Boolean isFull;
 }

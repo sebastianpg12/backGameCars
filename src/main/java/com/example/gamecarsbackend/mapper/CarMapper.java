@@ -19,6 +19,7 @@ public class CarMapper {
             car.setDriverId(updateCar.getDriverId());
             car.setGameId(updateCar.getGameId());
             car.setLaneId(updateCar.getLaneId());
+            car.setNamePlayer(updateCar.getNamePlayer());
             return car;
         };
 
@@ -32,7 +33,8 @@ public class CarMapper {
                 car.getAdvance(),
                 car.getDriverId(),
                 car.getGameId(),
-                car.getLaneId()
+                car.getLaneId(),
+                car.getNamePlayer()
         );
     }
 

@@ -6,4 +6,5 @@ import reactor.core.publisher.Flux;
 
 public interface CarRepository extends ReactiveMongoRepository<Car, String> {
     Flux<Car> findByDriverId(String driverId);
+    Flux<Car> findByGameId(String gameId);
 }

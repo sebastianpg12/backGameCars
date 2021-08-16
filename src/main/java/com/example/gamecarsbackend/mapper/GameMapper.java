@@ -14,6 +14,7 @@ public class GameMapper {
             Game game = new Game();
             game.setGameId(id);
             game.setTrackId(updateGame.getTrackId());
+            game.setIsFinished(updateGame.getIsFinished());
             return  game;
         };
     }
@@ -21,7 +22,9 @@ public class GameMapper {
     public Function<Game,GameDTO> mapperToGameDTO(){
         return game -> new GameDTO(
                 game.getGameId(),
-                game.getTrackId()
+                game.getTrackId(),
+                game.getIsFinished()
+
         );
     }
 }

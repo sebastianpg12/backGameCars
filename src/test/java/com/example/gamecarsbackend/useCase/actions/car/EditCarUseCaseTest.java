@@ -1,8 +1,9 @@
-package com.example.gamecarsbackend.useCase.actions;
+package com.example.gamecarsbackend.useCase.actions.car;
 
 import com.example.gamecarsbackend.domain.entitys.Car.Car;
 import com.example.gamecarsbackend.dto.CarDTO;
 import com.example.gamecarsbackend.repository.CarRepository;
+import com.example.gamecarsbackend.useCase.actions.EditCarUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -24,7 +25,7 @@ class EditCarUseCaseTest {
 
     @Test
     void editCar(){
-        var carDTO = new CarDTO("8", false, 9, 2, "1", "44", "44");
+        var carDTO = new CarDTO("8", false, 9, 2, "1", "44", "44","a");
         var car = new Car();
         car.setCarId("8");
         car.setGoal(false);
@@ -33,6 +34,7 @@ class EditCarUseCaseTest {
         car.setDriverId("1");
         car.setGameId("44");
         car.setLaneId("44");
+        car.setNamePlayer("a");
 
         when(carRepository.save(Mockito.any(Car.class))).thenReturn(Mono.just(car));
 
