@@ -38,7 +38,7 @@ class GetCarByGameIdUseCaseTest {
 
         when(carRepository.findByGameId(Mockito.any(String.class))).thenReturn(Flux.just(car));
 
-        var response =getCarByGameIdUseCase.findCarsByGameId(carDTO.getGameId());
+        Flux<CarDTO> response =getCarByGameIdUseCase.findCarsByGameId(carDTO.getGameId());
 
         Assertions.assertEquals(response.blockFirst().getGameId(), "5");
     }
