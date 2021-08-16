@@ -14,7 +14,6 @@ import reactor.core.publisher.Mono;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-
 @SpringBootTest
 class CreateCarUseCaseTest {
 
@@ -26,8 +25,8 @@ class CreateCarUseCaseTest {
 
     @Test
     void createCar(){
-        var carDTO = new CarDTO("8", false, 1, 3, "444", "444", "44444", "a");
-        var car = new Car();
+        CarDTO carDTO = new CarDTO("8", false, 1, 3, "444", "444", "44444", "a");
+        Car car = new Car();
         car.setCarId("8");
         car.setGoal(false);
         car.setCurrentPosition(1);
@@ -37,10 +36,9 @@ class CreateCarUseCaseTest {
         car.setLaneId("44444");
         car.setNamePlayer("a");
 
-
         when(carRepository.save(Mockito.any(Car.class))).thenReturn(Mono.just(car));
 
-        var response = createCarUseCase.createCar(carDTO);
+        Mono<CarDTO> response = createCarUseCase.createCar(carDTO);
 
         Assertions.assertEquals(response.block(), carDTO);
 

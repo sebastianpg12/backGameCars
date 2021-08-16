@@ -27,8 +27,8 @@ class CreateLaneUseCaseTest {
 
     @Test
     void createLane(){
-        var laneDTO = new LaneDTO("8", "5", "9", "2", "1");
-        var lane = new Lane();
+        LaneDTO laneDTO = new LaneDTO("8", "5", "9", "2", "1");
+        Lane lane = new Lane();
         lane.setLaneId("8");
         lane.setCarId("5");
         lane.setGameId("9");
@@ -37,7 +37,7 @@ class CreateLaneUseCaseTest {
 
         when(laneRepository.save(Mockito.any(Lane.class))).thenReturn(Mono.just(lane));
 
-        var response = createLaneUseCase.createLane(laneDTO);
+        Mono<LaneDTO> response = createLaneUseCase.createLane(laneDTO);
 
         Assertions.assertEquals(response.block(), laneDTO);
 

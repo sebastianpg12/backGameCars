@@ -25,8 +25,8 @@ class EditPlayerUseCaseTest {
 
     @Test
     void updatePlayer(){
-        var playerDTO = new PlayerDTO("7", "Carlos", 0, 0, 0, "5", "7");
-        var player = new Player();
+        PlayerDTO playerDTO = new PlayerDTO("7", "Carlos", 0, 0, 0, "5", "7");
+        Player player = new Player();
         player.setPlayerId("7");
         player.setName("Carlos");
         player.setFirstPlace(0);
@@ -37,7 +37,7 @@ class EditPlayerUseCaseTest {
 
         when(playerRepository.save(Mockito.any(Player.class))).thenReturn(Mono.just(player));
 
-        var response = editPlayerUseCase.modifyPlayer(playerDTO);
+        Mono<PlayerDTO> response = editPlayerUseCase.modifyPlayer(playerDTO);
 
         Assertions.assertEquals(response.block(), playerDTO);
     }

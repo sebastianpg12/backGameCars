@@ -1,9 +1,8 @@
-package com.example.gamecarsbackend.useCase.query.podium;
+package com.example.gamecarsbackend.useCase.actions;
 
 import com.example.gamecarsbackend.domain.entitys.Podium.Podium;
 import com.example.gamecarsbackend.dto.PodiumDTO;
 import com.example.gamecarsbackend.repository.PodiumRepository;
-import com.example.gamecarsbackend.useCase.query.FindByIdPodiumUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -14,30 +13,29 @@ import reactor.core.publisher.Mono;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-
 @SpringBootTest
-class FindByIdPodiumUseCaseTest {
+class CreatePodiumUseCaseTest {
     @SpyBean
-    FindByIdPodiumUseCase findByIdPodiumUseCase;
+    CreatePodiumUseCase createPodiumUseCase;
 
     @MockBean
     PodiumRepository podiumRepository;
+
     @Test
-    void updatePodium(){
-        PodiumDTO podiumDTO = new PodiumDTO("7","1" ,"1","1","1",false);
+    void createPodium(){
+        PodiumDTO podiumDTO = new PodiumDTO("7","Andres" ,"Carlos","Pablo","2",false);
         Podium podium = new Podium();
         podium.setPodiumId("7");
-        podium.setFirstPlace("1");
-        podium.setSecondPlace("1");
-        podium.setThirdPlace("1");
-        podium.setGameId("1");
+        podium.setGameId("2");
+        podium.setFirstPlace("Andres");
+        podium.setSecondPlace("Carlos");
+        podium.setThirdPlace("Pablo");
         podium.setIsFull(false);
 
-        when(podiumRepository.findById(Mockito.any(String.class))).thenReturn(Mono.just(podium));
+        when(podiumRepository.save(Mockito.any(Podium.class))).thenReturn(Mono.just(podium));
 
-        Mono<PodiumDTO> response = findByIdPodiumUseCase.getfindbyid(podiumDTO.getPodiumId());
+        Mono<PodiumDTO> response = createPodiumUseCase.apply(podiumDTO);
 
-        Assertions.assertEquals(response.block().getPodiumId(), "7");
+        Assertions.assertEquals(response.block(), podiumDTO);
     }
-
 }

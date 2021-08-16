@@ -25,8 +25,8 @@ class EditCarUseCaseTest {
 
     @Test
     void editCar(){
-        var carDTO = new CarDTO("8", false, 9, 2, "1", "44", "44","a");
-        var car = new Car();
+        CarDTO carDTO = new CarDTO("8", false, 9, 2, "1", "44", "44","a");
+        Car car = new Car();
         car.setCarId("8");
         car.setGoal(false);
         car.setCurrentPosition(9);
@@ -38,7 +38,7 @@ class EditCarUseCaseTest {
 
         when(carRepository.save(Mockito.any(Car.class))).thenReturn(Mono.just(car));
 
-        var response = editCarUseCase.modifyCar(carDTO);
+        Mono<CarDTO> response = editCarUseCase.modifyCar(carDTO);
 
         Assertions.assertEquals(response.block(), carDTO);
 
